@@ -1,6 +1,5 @@
 class SearchController {
-    handle(req, res) {
-        
+    async handle(req, res) {
         res.render("search.ejs")
     }
 }

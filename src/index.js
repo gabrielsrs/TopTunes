@@ -1,6 +1,7 @@
 import express from "express"
 import { fileURLToPath } from "url"
 import { join } from "path"
+
 import { route } from "./routes/index.js"
 
 import { SocketRouter } from "./routes/socketIo/index.js"
