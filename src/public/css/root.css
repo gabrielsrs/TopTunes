@@ -1,0 +1,41 @@
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+
+    box-shadow: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    position: relative;
+    font-size: 100%;
+    background-color: #F5EFE0;
+    overflow: hidden;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  outline: none;
+  border: none;
+}
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+}

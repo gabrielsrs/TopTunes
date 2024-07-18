@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <%- include("partials/head") %>
+
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-    
+    <%- include("partials/nav") %>
+
+    <main>
+        <div id="title">
+            <h1>Welcome to TopTunes!</h1>
+        </div>
+        
+        <div id="main-content">
+            <div id="text-content">
+                <p>
+                    Discover the most popular songs from your favorite artists.<br/><span>Powered by Spotify's API.</span><br/>Our app brings you the top 5 most listened-to tracks for any artist,<br/>giving you instant access to the music that's making waves.
+                </p>
+
+                <div id="search">
+                    <a href="/search">Search</a>
+                </div>
+            </div>
+
+            <div class="dancing-doodle">
+                <img src="/assets/figures/DancingDoodle.png" alt="guy listen music">
+            </div>           
+        </div>
+    </main>
 </body>
 </html>

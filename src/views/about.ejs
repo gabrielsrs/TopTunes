@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
+
+    <%- include("partials/head") %>
+
+    <link rel="stylesheet" href="/css/about.css">
 </head>
 <body>
+    <%- include("partials/nav") %>
     
+    <main>        
+        <div id="main-content">
+            <div id="title">
+                <h1>About TopTunes</h1>
+            </div>
+            
+            <div class="zombie-doodle">
+                <img src="/assets/figures/ZombieingDoodle.png" alt="guy listen music">
+            </div>        
+        </div>
+
+        <div id="text-content">
+            <p>
+                At TopTunes, we're passionate about music and technology. Our app leverages the powerful Spotify API to deliver real-time data on the top 5 most listened-to songs from any artist. Whether you're a music enthusiast looking to explore new tracks or a fan wanting to stay updated with your favorite artists, TopTunes provides a seamless and engaging experience. Join us and dive into the world of music like never before!
+            </p>
+        </div>   
+    </main>
 </body>
 </html>

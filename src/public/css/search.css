@@ -1,0 +1,223 @@
+body::before {
+    content: "";
+    position: absolute;
+    top: 70px;
+    right: -400px;
+    width: 500px;
+    height: 300px;
+    z-index: -1;
+    background: url(/assets/images/plus.png) no-repeat;
+    transform: rotate(38deg);
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    left: 120px;
+    width: 500px;
+    height: 300px;
+    background: url(/assets/images/plus.png) no-repeat;
+    transform: rotate(30deg) scale(1.2);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100dvh;
+}
+
+#search-artists {
+    width: 100vw;
+    height: 80px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+#find-artits {
+    display: flex;
+    align-items: center;
+    width: 266px;
+    padding: 10px;
+}
+
+#find-artits input {
+    border: 3px solid #0C06C7;
+    border-right: none;
+    width: 180px;
+    height: 30px;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #ffffff00;
+    color: #1ED760;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#find-artits input::placeholder {
+    color: #1ed76099;
+}
+
+#find-artits button {
+    height: 30px;
+    width: 40px;
+    padding: 10px;
+    box-sizing: content-box;
+    border: 3px solid #0C06C7;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #ffffff00;
+    cursor: pointer;
+}
+
+#find-artits button::before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 30px;
+    background-color: #0C06C7;
+    margin-left: -10px;
+}
+
+.found-artits, 
+.top-musics  {
+    display: grid;
+    justify-content: flex-start;
+    align-content: center;
+    width: 100%;
+    padding: 10px;
+    grid-template: 50px / repeat(5, minmax(130px, 200px));
+    gap: 5px;
+}
+
+.found-artits li, 
+.top-musics  li {
+    display: grid;
+    grid-template: 50px / 1fr 3fr;
+    gap: 4px;
+    justify-items: start;
+    align-items: center;
+    position: relative;
+    min-width: 100px;
+    cursor: pointer;
+}
+
+.found-artits li a, 
+.top-musics  li a,
+.main-artist-info a {
+    height: 18px;
+    width: 18px;
+    border-radius: 50px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.found-artits li a:hover, 
+.top-musics  li a:hover,
+.main-artist-info a:hover {
+    transform: scale(1.05);
+    color: #13bc4f;
+}
+
+.found-artits li a:focus, 
+.top-musics  li a:focus,
+.main-artist-info a:focus {
+    transform: scale(0.9);
+    color: #1ED760;
+}
+
+.found-artits li:hover {
+    background-color: #f5e2d5;
+}
+
+.found-artits li img, 
+.top-musics  li img {
+    height: 40px;
+    width: 40px;
+    place-self: center;
+}
+
+.found-artits li span, 
+.top-musics li span {
+    width: 100%; 
+    color: #555555;
+    font-size: large;
+    font-weight: bold;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.artist-infos {
+    width: 100vw;
+    height: 100px;
+    padding: 10px 50px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.artist-infos-content {
+    display: inherit;
+    width: 100%;
+    min-width: 810px;
+    background: #1ED760;
+    box-shadow: inset 0px 0px 20px 20px #555;
+}
+
+.main-artist-info {
+    display: grid;
+    align-items: center;
+    justify-items: start;
+    grid-template: 60px / 1fr 3fr;
+    gap: 4px;
+    position: relative;
+    width: 296px;
+    min-width: 100px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.main-artist-info a {
+    top: 15px;
+    right: 10px;
+}
+
+.main-artist-info::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    height: 40px;
+    width: 2px;
+    background-color: #555555;
+}
+
+.main-artist-info img {
+    height: 60px;
+    width: 60px;
+    place-self: center;
+}
+
+.text-info {
+    width: 100%; 
+    color: #555555;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 15px;
+}
+
+.text-info span {
+    font-size: 12px;
+}
+
+.small-hr,
+.small-hr::before,
+.small-hr::after {
+    height: 1px;
+}
