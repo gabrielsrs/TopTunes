@@ -5,6 +5,7 @@ body::before {
     left: -100px;
     width: 500px;
     height: 300px;
+    z-index: -1;
     background: url("/assets/images/lines.png") no-repeat;
     transform: rotate(30deg) scale(1.5);
 }

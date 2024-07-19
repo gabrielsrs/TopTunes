@@ -17,6 +17,7 @@ body::after {
     left: 120px;
     width: 500px;
     height: 300px;
+    z-index: -1;
     background: url(/assets/images/plus.png) no-repeat;
     transform: rotate(30deg) scale(1.2);
 }
@@ -37,14 +38,29 @@ main {
     display: flex;
 }
 
-#find-artits {
+#artists-searched {
+    overflow: auto;
+    scrollbar-gutter: stable;
+    margin-bottom: 50px;
+    background-color: #f5efe0b3;
+}
+
+#artists-searched::-webkit-scrollbar {
+    width: 10px;
+}
+
+#artists-searched::-webkit-scrollbar-thumb {
+    background-color: #555;
+}
+
+#find-artists {
     display: flex;
     align-items: center;
     width: 266px;
     padding: 10px;
 }
 
-#find-artits input {
+#find-artists input {
     border: 3px solid #0C06C7;
     border-right: none;
     width: 180px;
@@ -58,11 +74,11 @@ main {
     font-weight: 600;
 }
 
-#find-artits input::placeholder {
+#find-artists input::placeholder {
     color: #1ed76099;
 }
 
-#find-artits button {
+#find-artists button {
     height: 30px;
     width: 40px;
     padding: 10px;
@@ -75,7 +91,7 @@ main {
     cursor: pointer;
 }
 
-#find-artits button::before {
+#find-artists button::before {
     content: "";
     display: block;
     width: 2px;
@@ -84,7 +100,7 @@ main {
     margin-left: -10px;
 }
 
-.found-artits, 
+#found-artists, 
 .top-musics  {
     display: grid;
     justify-content: flex-start;
@@ -95,7 +111,7 @@ main {
     gap: 5px;
 }
 
-.found-artits li, 
+#found-artists li, 
 .top-musics  li {
     display: grid;
     grid-template: 50px / 1fr 3fr;
@@ -107,7 +123,7 @@ main {
     cursor: pointer;
 }
 
-.found-artits li a, 
+#found-artists li a, 
 .top-musics  li a,
 .main-artist-info a {
     height: 18px;
@@ -118,35 +134,35 @@ main {
     right: 2px;
 }
 
-.found-artits li a:hover, 
+#found-artists li a:hover, 
 .top-musics  li a:hover,
 .main-artist-info a:hover {
     transform: scale(1.05);
     color: #13bc4f;
 }
 
-.found-artits li a:focus, 
+#found-artists li a:focus, 
 .top-musics  li a:focus,
 .main-artist-info a:focus {
     transform: scale(0.9);
     color: #1ED760;
 }
 
-.found-artits li:hover {
+#found-artists li:hover {
     background-color: #f5e2d5;
 }
 
-.found-artits li img, 
+#found-artists li img, 
 .top-musics  li img {
     height: 40px;
     width: 40px;
     place-self: center;
 }
 
-.found-artits li span, 
+#found-artists li span, 
 .top-musics li span {
     width: 100%; 
-    color: #555555;
+    color: #333;
     font-size: large;
     font-weight: bold;
     white-space: nowrap; 
@@ -155,7 +171,7 @@ main {
 }
 
 .artist-infos {
-    width: 100vw;
+    width: 95vw;
     height: 100px;
     padding: 10px 50px;
     box-sizing: border-box;
@@ -164,10 +180,21 @@ main {
 
 .artist-infos-content {
     display: inherit;
+    position: relative;
     width: 100%;
     min-width: 810px;
-    background: #1ED760;
     box-shadow: inset 0px 0px 20px 20px #555;
+}
+
+.background-album-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-width: 810px;
+    background: #1ED760;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 60%;
 }
 
 .main-artist-info {
@@ -204,8 +231,8 @@ main {
 }
 
 .text-info {
-    width: 100%; 
-    color: #555555;
+    width: 95%; 
+    color: #333;
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -219,5 +246,5 @@ main {
 .small-hr,
 .small-hr::before,
 .small-hr::after {
-    height: 1px;
+    min-height: 1px;
 }

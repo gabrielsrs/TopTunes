@@ -84,5 +84,5 @@
 .semi-bold-hr,
 .semi-bold-hr::before,
 .semi-bold-hr::after {
-    height: 2px;
+    min-height: 2px;
 }
