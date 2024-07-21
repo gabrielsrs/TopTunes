@@ -170,6 +170,15 @@ main {
     text-overflow: ellipsis; 
 }
 
+#error-submit,
+#error-search {
+    color: #333;
+    font-size: large;
+    font-weight: bold;
+    text-wrap: nowrap;
+    place-content: center;
+}
+
 .artist-infos {
     width: 95vw;
     height: 100px;

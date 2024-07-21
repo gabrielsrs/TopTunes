@@ -27,9 +27,6 @@ class TopTrackService {
 
             return tracksInfo
         })
-        .catch(err => {
-            console.error("Error when fetch dada: ", err)
-        }) 
     }
 }
 

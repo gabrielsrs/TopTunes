@@ -18,9 +18,6 @@ class AlbumService {
             
             return albumImage
         })
-        .catch(err => {
-            console.error("Error when fetch dada: ", err)
-        }) 
     }
 }
 

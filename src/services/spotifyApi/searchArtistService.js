@@ -34,9 +34,6 @@ class SearchArtistService {
 
             return artistData
         })
-        .catch(err => {
-            console.error("Error when fetch dada: ", err)
-        }) 
     }
 }
 
