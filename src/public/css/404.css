@@ -1,0 +1,109 @@
+body {
+    transform: rotate(4deg);
+}
+
+#nav-main-content {
+    justify-content: flex-end;
+}
+
+#site-title {
+    transform: rotate(342deg);
+}
+
+#icon {
+    top: 11px;
+    left: calc(100dvw - 390px);
+}
+
+main {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100dvh;
+    width: 100dvw;
+    justify-content: center;
+    align-items: center;
+}
+
+#text-content {
+    display: block;
+    height: 250px;
+    width: 700px;
+    line-height: 50px;
+    color: #0c06c7;
+    transform: rotate(27deg);
+    margin-left: -90px;
+}
+
+#text-content h1 {
+    font-size: 62px;
+}
+
+#error-404 {
+    display: flex;
+    width: inherit;
+    justify-content: flex-end;
+    font-size: 62px;
+    font-weight: 600;
+    align-items: center;
+}
+
+#error-404 div {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+#error {
+    height: inherit;
+    margin-top: 10px;
+}
+
+.\34 {
+    font-size: 92px;
+    font-weight: 600;
+    color: #1ED760;
+}
+
+#disc {
+    height: 80px;
+    width: 80px;
+    animation: spin 5s infinite linear;
+}
+
+@keyframes spin {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+
+.messy-doodle {
+    height: 700px;
+    width: 700px;
+    transform: rotate(8deg);
+    z-index: -1;
+}
+
+.texture {
+    position: absolute;
+}
+
+span.blue {
+    color: #0c06c7;
+}
+
+span.green {
+    color: #1ED760;
+}
+
+.top {
+    top: 100px;
+    left: -10px;
+} 
+
+.bottom {
+    bottom: 100px;
+    right: -10px;
+}

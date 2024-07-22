@@ -1,0 +1,21 @@
+.texture-404 {
+    position: absolute;
+}
+
+.texture-404 .blue {
+    color: #0c06c7;
+}
+
+.texture-404 .green {
+    color: #1ED760;
+}
+
+.top-404 {
+    top: 100px;
+    left: -10px;
+} 
+
+.bottom-404 {
+    bottom: 100px;
+    right: -10px;
+}
