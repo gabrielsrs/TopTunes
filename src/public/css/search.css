@@ -26,23 +26,60 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    transform: translateY(30%);
     height: 100dvh;
+}
+
+.main-start {
+    transform: translateY(0);
+    animation: justifyContentAnimation 0.2s cubic-bezier(0.39, 0.58, 0.57, 1);
+}
+
+@keyframes justifyContentAnimation {
+    from {
+        transform: translateY(30%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 #search-artists {
     width: 100vw;
-    height: 80px;
+    gap: 5px;
     padding: 0 50px;
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search-title {
+    text-align: center;
+    line-height: 50px;
+    margin-top: 20px;
+}
+
+#search-title h1 {
+    font-size: 82px;
+    color: var(--main-clr);
+    text-transform: capitalize;
+}
+
+#search-title span {
+    color: var(--second-clr);
+    font-weight: 600;
+}
+
+#search-title span strong {
+    font-weight: 900;
 }
 
 #artists-searched {
     overflow: auto;
     scrollbar-gutter: stable;
     margin-bottom: 50px;
-    background-color: #f5efe0b3;
+    background-color: var(--background-mask-clr);
 }
 
 #artists-searched::-webkit-scrollbar {
@@ -50,45 +87,58 @@ main {
 }
 
 #artists-searched::-webkit-scrollbar-thumb {
-    background-color: #555;
+    background-color: var(--components-grey-clr);
 }
 
 #find-artists {
     display: flex;
     align-items: center;
-    width: 266px;
+    width: 486px;
     padding: 10px;
 }
 
 #find-artists input {
-    border: 3px solid #0C06C7;
+    border: 3px solid var(--main-clr);
     border-right: none;
-    width: 180px;
+    width: 400px;
     height: 30px;
     padding: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    background-color: #ffffff00;
-    color: #1ED760;
+    background-color: var(--transparent-clr);
+    color: var(--second-clr);
     font-size: 20px;
     font-weight: 600;
 }
 
 #find-artists input::placeholder {
-    color: #1ed76099;
+    color: var(--second-clr)99;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: var(--second-clr);
 }
 
 #find-artists button {
+    position: relative;
     height: 30px;
     width: 40px;
     padding: 10px;
     box-sizing: content-box;
-    border: 3px solid #0C06C7;
+    border: 3px solid var(--main-clr);
     border-left: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: #ffffff00;
+    background-color: var(--transparent-clr);
     cursor: pointer;
+}
+
+#find-artists button svg {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    left: 15px;
 }
 
 #find-artists button::before {
@@ -96,7 +146,7 @@ main {
     display: block;
     width: 2px;
     height: 30px;
-    background-color: #0C06C7;
+    background-color: var(--main-clr);
     margin-left: -10px;
 }
 
@@ -105,10 +155,13 @@ main {
     display: grid;
     justify-content: flex-start;
     align-content: center;
-    width: 100%;
     padding: 10px;
     grid-template: 50px / repeat(5, minmax(130px, 200px));
     gap: 5px;
+}
+
+#found-artists {
+    justify-content: center;
 }
 
 #found-artists li, 
@@ -136,20 +189,23 @@ main {
 
 #found-artists li a:hover, 
 .top-musics  li a:hover,
-.main-artist-info a:hover {
+.main-artist-info a:hover,
+#find-artists button:hover svg {
     transform: scale(1.05);
-    color: #13bc4f;
+    color: var(--button-hover-clr);
 }
 
-#found-artists li a:focus, 
-.top-musics  li a:focus,
-.main-artist-info a:focus {
+#found-artists li a:active, 
+.top-musics  li a:active,
+.main-artist-info a:active,
+#find-artists button:active svg {
     transform: scale(0.9);
-    color: #1ED760;
+    color: var(--second-clr);
 }
+
 
 #found-artists li:hover {
-    background-color: #f5e2d5;
+    background-color: var(--components-background-clr);
 }
 
 #found-artists li img, 
@@ -161,8 +217,8 @@ main {
 
 #found-artists li span, 
 .top-musics li span {
-    width: 100%; 
-    color: #333;
+    width: 90%; 
+    color: var(--sub-text-clr);
     font-size: large;
     font-weight: bold;
     white-space: nowrap; 
@@ -172,11 +228,13 @@ main {
 
 #error-submit,
 #error-search {
-    color: #333;
+    color: var(--sub-text-clr);
     font-size: large;
     font-weight: bold;
     text-wrap: nowrap;
-    place-content: center;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    place-self: center;
 }
 
 .artist-infos {
@@ -189,10 +247,11 @@ main {
 
 .artist-infos-content {
     display: inherit;
+    justify-content: center;
     position: relative;
     width: 100%;
     min-width: 810px;
-    box-shadow: inset 0px 0px 20px 20px #555;
+    box-shadow: inset 0px 0px 20px 20px var(--components-grey-clr);
 }
 
 .background-album-mask {
@@ -200,7 +259,7 @@ main {
     width: 100%;
     height: 100%;
     min-width: 810px;
-    background: #1ED760;
+    background: var(--second-clr);
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 60%;
@@ -230,7 +289,7 @@ main {
     right: 0;
     height: 40px;
     width: 2px;
-    background-color: #555555;
+    background-color: var(--components-grey-clr);
 }
 
 .main-artist-info img {
@@ -241,7 +300,7 @@ main {
 
 .text-info {
     width: 95%; 
-    color: #333;
+    color: var(--sub-text-clr);
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;

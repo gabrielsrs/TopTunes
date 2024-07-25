@@ -41,8 +41,8 @@ main {
 }
 
 #title > h1 {
-    font-size: xxx-large;
-    color: #1ED760;
+    font-size: 72px;
+    color: var(--main-clr);
 }
 
 #text-content {
@@ -53,11 +53,11 @@ main {
 p {
     font-size: 25px;
     font-weight: 600;
-    color: #1ED760;
+    color: var(--second-clr);
 }
 
 p > span {
-    color: #0C06C7;
+    color: var(--main-clr);
 }
 
 #text-content #search {
@@ -67,7 +67,7 @@ p > span {
     height: 51px;
     width: 150px;
     margin: 10px;
-    border: 5px solid #0C06C7;
+    border: 5px solid var(--main-clr);
     border-radius: 20px;
     position: relative;
     left: 220px;
@@ -81,19 +81,19 @@ p > span {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    color: #1ED760;
+    color: var(--second-clr);
     font-size: 20px;
     font-weight: bold;
 }
 
 #text-content #search a:hover  {
     transform: scale(1.1);
-    color: #13bc4f;
+    color: var(--button-hover-clr);
 }
 
 #text-content #search a:focus {
     transform: scale(0.9);
-    color: #1ED760;
+    color: var(--second-clr);
 }
 
 .dancing-doodle {

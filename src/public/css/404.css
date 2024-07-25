@@ -29,9 +29,8 @@ main {
     height: 250px;
     width: 700px;
     line-height: 50px;
-    color: #0c06c7;
-    transform: rotate(27deg);
-    margin-left: -90px;
+    color: var(--main-clr);
+    transform: rotate(4deg);
 }
 
 #text-content h1 {
@@ -61,7 +60,7 @@ main {
 .\34 {
     font-size: 92px;
     font-weight: 600;
-    color: #1ED760;
+    color: var(--second-clr);
 }
 
 #disc {
@@ -91,11 +90,11 @@ main {
 }
 
 span.blue {
-    color: #0c06c7;
+    color: var(--main-clr);
 }
 
 span.green {
-    color: #1ED760;
+    color: var(--second-clr);
 }
 
 .top {

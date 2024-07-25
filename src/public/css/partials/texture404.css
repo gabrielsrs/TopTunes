@@ -3,11 +3,11 @@
 }
 
 .texture-404 .blue {
-    color: #0c06c7;
+    color: var(--main-clr);
 }
 
 .texture-404 .green {
-    color: #1ED760;
+    color: var(--second-clr);
 }
 
 .top-404 {
