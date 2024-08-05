@@ -5,6 +5,7 @@ body::before {
     left: -200px;
     width: 500px;
     height: 300px;
+    z-index: -1;
     background: url("/assets/images/doodle.png") no-repeat;
     transform: rotate(149deg);
 }
@@ -23,10 +24,41 @@ body::after {
 
 main {
     display: flex;
+    flex-direction: column;
+    align-content: flex-start;
     align-items: center;
-    justify-content: center;
-    height: 100dvh;
-    margin: 40px;
+    height: calc(100dvh - 55px);
+    padding: 40px;
+    overflow: auto;
+    scrollbar-gutter: stable;
+}
+
+main::before, main::after {
+    content: "";
+    margin: auto;
+}
+
+main::-webkit-scrollbar {
+    width: 10px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background-color: var(--components-grey-clr);
+}
+
+#title  {
+    width: 60%;
+    text-align: right;
+}
+
+#title > h1 {
+    font-size: 72px;
+    color: var(--main-clr);
+}
+
+#temp  {
+    display: flex;
+    align-items: center;
 }
 
 #main-content {
@@ -35,20 +67,11 @@ main {
     align-items: center;
 }
 
-#title  {
-    margin: -100px -600px 20px 0;
-}
-
-#title > h1 {
-    font-size: 72px;
-    color: var(--main-clr);
-}
 
 #text-content {
-    height: 500px;
     max-width: 1000px;
     text-align: left;
-    z-index: 1;
+    display: flex;
 }
 
 p {
@@ -56,6 +79,7 @@ p {
     font-weight: 600;
     color: var(--second-clr);
     text-align: justify;
+    background-color: var(--background-mask-clr);
 }
 
 p > span {
@@ -99,7 +123,29 @@ p > span {
 }
 
 .zombie-doodle {
-    height: 600px;
+    height: 400px;
     width: 500px;
     margin-right: -50px;
+}
+
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+    }
+
+    #main-content {
+        background-color: var(--background-mask-clr);
+    }
+
+    #title > h1 {
+        font-size: calc(1.5rem + 4dvw);
+    }
+
+    p {
+        font-size: calc(0.5rem + 1.5dvw);
+    }
+
+    .zombie-doodle {
+        display: none;
+    }
 }

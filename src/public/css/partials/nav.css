@@ -1,6 +1,7 @@
 #main-nav-on-top {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     width: 100dvw;
     height: 55px;
@@ -8,6 +9,7 @@
 }
 
 #icon {
+    display: block;
     height: 40px;
     width: 40px;
     position: absolute;
@@ -34,22 +36,33 @@
 
 #site-title, #menu {
     display: flex;
+    align-items: center;
+    height: 50px;
     align-self: center;
     font-size: x-large;
     font-weight: bolder;
     color: var(--second-clr);
+    user-select: none;
 }
 
 #menu > li {
     display: contents;
 }
 
-#menu > li > a:hover {
+#menu > li > a {
+    padding: 5px;
+}
+
+#menu > li > a:hover,
+#min-menu > li > a:hover,
+#menu-icon:hover {
     transform: scale(1.05);
     color: var(--button-hover-clr);
 }
 
-#menu > li > a:focus {
+#menu > li > a:active,
+#min-menu > li > a:active,
+#menu-icon:active {
     transform: scale(0.9);
     color: var(--second-clr);
 }
@@ -58,6 +71,7 @@
     margin: 0 5px;
     background: var(--second-clr);
     width: 2px;
+    height: 30px;
 }
 
 .hr-style {
@@ -85,4 +99,72 @@
 .semi-bold-hr::before,
 .semi-bold-hr::after {
     min-height: 2px;
+}
+
+#menu-icon {
+    display: none;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    cursor: pointer;
+}
+
+.min-nav-main-content {
+    display: none;
+    background-color: var(--background-mask-clr);
+    width: 90dvw;
+    z-index: 10;
+}
+
+.menuActive {
+    display: flex;
+}
+
+#min-menu {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    font-size: large;
+    font-weight: bolder;
+    color: var(--second-clr);
+    align-items: center;
+    user-select: none;
+}
+
+#min-menu #home,
+#min-menu #about,
+#min-menu #search {
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+}
+
+@media (max-width: 1024px) or (max-height: 920px) {
+    #menu-icon {
+        display: block;
+    }
+
+    #icon {
+        display: none;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    .menuActive {
+        display: flex;
+    }
+
+    #nav-main-content {
+        background-color: var(--background-mask-clr);
+    }
+}
+
+@media (min-width: 1024px) and (min-height: 920px) {
+    .menuActive {
+        display: none;
+    }
 }

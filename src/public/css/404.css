@@ -6,13 +6,43 @@ body {
     justify-content: flex-end;
 }
 
-#site-title {
-    transform: rotate(342deg);
+#site-title, #menu {
+    align-items: flex-end;
 }
+
+#menu > li > a {
+    padding: 0;
+}
+
+#menu > li > span {
+    margin: 0;
+}
+
+#site-title {
+    transform: rotate(349deg);
+    margin-right: -13px;
+}
+
+#home a {
+    transform: rotate(345deg);
+}
+
+#home span {
+    margin-bottom: 7px;
+}
+
+#about a {
+    transform: rotate(12deg);
+}
+
+#search a {
+    transform: rotate(351deg);
+}
+
 
 #icon {
     top: 11px;
-    left: calc(100dvw - 390px);
+    left: calc(100dvw - 355px);
 }
 
 main {
@@ -80,7 +110,9 @@ main {
 
 .messy-doodle {
     height: 700px;
+    min-height: 700px;
     width: 700px;
+    min-width: 700px;
     transform: rotate(8deg);
     z-index: -1;
 }
@@ -105,4 +137,55 @@ span.green {
 .bottom {
     bottom: 100px;
     right: -10px;
+}
+
+@media (max-width: 1400px) {
+    #text-content {
+        position: absolute;
+        margin-left: 60%;
+    }
+
+    .messy-doodle {
+        opacity: 80%;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    #text-content {
+        height: auto;
+        width: 200px;
+        position: absolute;
+        margin: 0;
+    }
+
+    #error-404 {
+        flex-wrap: wrap;
+    }
+
+    #error-404 > div:nth-child(1) {
+        height: auto;
+    }
+
+    .messy-doodle {
+        opacity: 30%;
+    }
+}
+
+@media (max-width: 1024px) or (max-height: 920px) {
+    #menu-icon {
+        display: none;
+    }
+
+    #icon {
+        display: block;
+    }
+
+    #menu {
+        display: flex;
+    }
+
+    #nav-main-content {
+        background-color: var(--background-mask-clr);
+    }
 }

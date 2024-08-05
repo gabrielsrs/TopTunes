@@ -26,13 +26,10 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: translateY(30%);
-    height: 100dvh;
-}
-
-.main-start {
-    transform: translateY(0);
-    animation: justifyContentAnimation 0.2s cubic-bezier(0.39, 0.58, 0.57, 1);
+    height: calc(100dvh - 55px);
+    overflow: hidden auto;
+    scrollbar-gutter: stable;
+    margin: 10px;
 }
 
 @keyframes justifyContentAnimation {
@@ -79,29 +76,35 @@ main {
     overflow: auto;
     scrollbar-gutter: stable;
     margin-bottom: 50px;
-    background-color: var(--background-mask-clr);
+    min-height: 210px;
 }
 
-#artists-searched::-webkit-scrollbar {
+#artists-searched::-webkit-scrollbar,
+main::-webkit-scrollbar {
     width: 10px;
 }
 
-#artists-searched::-webkit-scrollbar-thumb {
+#artists-searched::-webkit-scrollbar-thumb,
+main::-webkit-scrollbar-thumb {
     background-color: var(--components-grey-clr);
+}
+
+@media (max-width: 790px) {
+    #artists-searched::-webkit-scrollbar-thumb {
+        background-color: var(--transparent-clr);
+    }
 }
 
 #find-artists {
     display: flex;
     align-items: center;
-    width: 486px;
     padding: 10px;
 }
 
 #find-artists input {
     border: 3px solid var(--main-clr);
     border-right: none;
-    width: 400px;
-    height: 30px;
+    height: 55px;
     padding: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -155,9 +158,14 @@ input:-webkit-autofill {
     display: grid;
     justify-content: flex-start;
     align-content: center;
+    width: 1040px;
     padding: 10px;
-    grid-template: 50px / repeat(5, minmax(130px, 200px));
+    grid-template: 50px / repeat(auto-fit, minmax(130px, 200px));
     gap: 5px;
+}
+
+.top-musics {
+    grid-template-columns: repeat(5, minmax(130px, 200px));
 }
 
 #found-artists {
@@ -243,6 +251,7 @@ input:-webkit-autofill {
     padding: 10px 50px;
     box-sizing: border-box;
     display: flex;
+    background-color: var(--background-mask-clr);
 }
 
 .artist-infos-content {
@@ -250,7 +259,6 @@ input:-webkit-autofill {
     justify-content: center;
     position: relative;
     width: 100%;
-    min-width: 810px;
     box-shadow: inset 0px 0px 20px 20px var(--components-grey-clr);
 }
 
@@ -258,7 +266,6 @@ input:-webkit-autofill {
     position: absolute;
     width: 100%;
     height: 100%;
-    min-width: 810px;
     background: var(--second-clr);
     background-repeat: no-repeat;
     background-size: cover;
@@ -295,6 +302,7 @@ input:-webkit-autofill {
 .main-artist-info img {
     height: 60px;
     width: 60px;
+    min-width: 40px;
     place-self: center;
 }
 
@@ -307,6 +315,12 @@ input:-webkit-autofill {
     line-height: 15px;
 }
 
+.text-info h3 {
+    width: 90%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .text-info span {
     font-size: 12px;
 }
@@ -316,3 +330,69 @@ input:-webkit-autofill {
 .small-hr::after {
     min-height: 1px;
 }
+
+.toggle-artists {
+    display: none;
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.up-arrow, 
+.down-arrow {
+    height: 18px;
+    width: 18px;
+}
+
+@media (max-width: 1040px) {
+    .toggle-artists {
+        display: flex;
+    }
+    
+    #found-artists {
+        width: 300px;
+        background: var(--background-mask-clr);
+        grid-template: 1fr / auto;
+        margin-bottom: 15px;
+    }
+
+    .artist-infos {
+        height: auto;
+    }
+
+    .artist-infos-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-artist-info::after {
+        height: 0;
+    }
+
+    .top-musics {
+        display: none;
+        width: auto;
+        grid-template: repeat(5, 50px) / minmax(200px, 300px);
+    }
+
+    .hiddenTopMusics {
+        display: flex;
+    }
+}
+
+@media (max-width: 720px) {
+    #search-title h1 {
+        text-wrap: wrap;
+        line-height: 1;
+    }
+
+    .top-musics {
+        flex-direction: column;
+    }
+
+    .top-musics li {
+        max-width: 300px;
+    }
+}
+
